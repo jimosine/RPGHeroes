@@ -3,6 +3,7 @@ package org.example;
 import java.util.Map;
 
 //Automatically done when trying to add slot enum
+import static org.example.Item.Slot.HEAD;
 import static org.example.Item.Slot.WEAPON;
 
 public class Main {
@@ -20,10 +21,12 @@ public class Main {
         }
 
         //Item test
-        Weapon battleAxe = new Weapon("Battle Axe", 1, 12, WEAPON);
+        Weapon battleAxe = new Weapon("Battle Axe", 1, 12, WEAPON, Weapon.WeaponTypes.AXE);
+        Armor helmet = new Armor("Cool Helmet", 2, HEAD, Armor.ArmorType.PLATE);
         System.out.println(battleAxe.getSlot());
 
         heroJim.equip(battleAxe);
+        heroJim.equip(helmet);
 
         System.out.println("\n");
         for (Map.Entry<Item.Slot, Item> entry : heroJim.getEquipment().entrySet()) {

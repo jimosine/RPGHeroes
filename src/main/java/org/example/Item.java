@@ -23,6 +23,10 @@ public abstract class Item  {
         return Slot;
     }
 
+    // Hopen dat ik nu in item wel .weapontypes mag noemen
+    abstract Weapon.WeaponTypes getWeaponTypes();
+
+
     public String getName() {
         return name;
     }

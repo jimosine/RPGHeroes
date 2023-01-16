@@ -2,7 +2,8 @@ package org.example;
 
 public class Weapon extends Item {
     int weaponDamage;
-    enum weaponTypes{
+    private final Weapon.WeaponTypes WeaponTypes;
+    enum WeaponTypes{
         AXE,
         BOW,
         DAGGER,
@@ -12,9 +13,15 @@ public class Weapon extends Item {
         WAND
     }
 
-    public Weapon(String name, int requiredLevel, int weaponsDamage, Slot slot) {
+    public Weapon(String name, int requiredLevel, int weaponsDamage, Slot slot, WeaponTypes weaponsType) {
         super(name, requiredLevel, slot);
         this.weaponDamage = weaponDamage;
+        this.WeaponTypes = weaponsType;
+    }
+
+    @Override
+    public Weapon.WeaponTypes getWeaponTypes() {
+        return WeaponTypes;
     }
 
     public int getWeaponDamage() {
