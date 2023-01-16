@@ -12,7 +12,8 @@ public class Weapon extends Item {
         WAND
     }
 
-    public Weapon(int weaponsDamage) {
+    public Weapon(String name, int requiredLevel, int weaponsDamage, Slot slot) {
+        super(name, requiredLevel, slot);
         this.weaponDamage = weaponDamage;
     }
 

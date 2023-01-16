@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
-
 public class Mage extends Hero{
 
 
@@ -17,6 +15,13 @@ public class Mage extends Hero{
         setLevel(getLevel() + 1); //kan dit ook verkassen naar de Hero.java want telt voor elke type
         HeroAttribute.increaseStats(1,1,5);
     }
+
+//    @Override
+//    public void equip(Item item){
+//        item.getRequiredLevel();
+//        item.getSlot();
+//
+//    }
 
     public void setLevel(int lvl){
         level = lvl;

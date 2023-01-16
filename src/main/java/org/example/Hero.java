@@ -10,7 +10,7 @@ public abstract class Hero {
     //private int level;
     public HeroAttribute levelAttributes;
 
-    public Map<Item.slot, Item> equipment; //map of items van type <slot, item>
+    public Map<Item.Slot, Item> equipment; //map of items van type <slot, item>
 
     private ArrayList<String> validWeaponTypes;
     private ArrayList<String> validArmorTypes;
@@ -30,10 +30,10 @@ public abstract class Hero {
         * //        );
         * */
         this.equipment = new HashMap<>();
-        equipment.put(Item.slot.WEAPON, null);
-        equipment.put(Item.slot.HEAD, null);
-        equipment.put(Item.slot.BODY, null);
-        equipment.put(Item.slot.LEGS, null);
+        equipment.put(Item.Slot.WEAPON, null);
+        equipment.put(Item.Slot.HEAD, null);
+        equipment.put(Item.Slot.BODY, null);
+        equipment.put(Item.Slot.LEGS, null);
 
 
     }
@@ -43,16 +43,23 @@ public abstract class Hero {
 //        HeroAttribute.increaseStats(1,1,2);
 
 
-    public Map<Item.slot, Item> getEquipment() {
+    public Map<Item.Slot, Item> getEquipment() {
         return equipment;
     }
 
-    public void setEquipment(Map<Item.slot, Item> equipment) {
+    public void setEquipment(Map<Item.Slot, Item> equipment) {
         this.equipment = equipment;
     }
 
-    public static void equip(){
-
+    public void equip(Item item){
+        int mylvl = level;
+        int ilvl = item.getRequiredLevel();
+        if (mylvl >= ilvl) {
+            equipment.put(item.getSlot(), item);
+        }
+        else {
+            System.out.println("mag niet");
+        }
     }
 
     public static void damage(){
@@ -72,4 +79,5 @@ public abstract class Hero {
         System.out.println(levelAttributes.getDex());
         System.out.println(levelAttributes.getIntel());
     }
+
 }
