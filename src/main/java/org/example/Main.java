@@ -22,7 +22,7 @@ public class Main {
 
         //Item test
         Weapon battleAxe = new Weapon("Battle Axe", 1, 12, WEAPON, Weapon.WeaponTypes.AXE);
-        Armor helmet = new Armor("Cool Helmet", 2, HEAD, Armor.ArmorType.PLATE);
+        Armor helmet = new Armor("Cool Helmet", 2, new HeroAttribute(1,1,1), HEAD, Armor.ArmorType.PLATE);
         System.out.println(battleAxe.getSlot());
 
         heroJim.equip(battleAxe);

@@ -12,7 +12,7 @@ public class Armor extends Item {
         PLATE
     }
 
-    public Armor(String name, int requiredLevel, Item.Slot slot, ArmorType armorTypes) {
+    public Armor(String name, int requiredLevel, HeroAttribute armorAttribute, Item.Slot slot, ArmorType armorTypes) {
         super(name, requiredLevel, slot);
         this.armorAttribute = armorAttribute;
         this.ArmorTypes = armorTypes;
