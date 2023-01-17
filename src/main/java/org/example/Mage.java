@@ -29,8 +29,7 @@ public class Mage extends Hero{
         double heroDmg = 0;
         for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) {
             try{
-            if (entry.getKey().toString().equals("WEAPON")) { //nullpointerexception als waarde null is
-                //nog even een nullpointerexception maken (dan weaponDmg = 1)
+            if (entry.getKey().toString().equals("WEAPON")) {
                 weaponDmg = entry.getValue().getWeaponDamage();
             }} catch (NullPointerException e2){
                 weaponDmg = 1;
@@ -72,9 +71,6 @@ public class Mage extends Hero{
 
     }
 
-
-
-
     public void setLevel(int lvl){
         level = lvl;
     }
@@ -91,17 +87,5 @@ public class Mage extends Hero{
         levelAttributes = attributes;
     }
 
-//    public Mage(String name, int level, int levelAttributes, ArrayList<String> validWeaponTypes, ArrayList<String> validArmorTypes) {
-//        super(name);
-//        this.level = level;
-//        this.levelAttributes = levelAttributes;
-//        this.validWeaponTypes = validWeaponTypes;
-//        this.validArmorTypes = validArmorTypes;
-//    }
-
-    //    @Override
-//    public String displayStats() {
-//        return name + level;
-//    }
 }
 

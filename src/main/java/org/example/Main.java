@@ -22,12 +22,14 @@ public class Main {
         HeroAttribute a = new HeroAttribute(32,14,72);
         HeroAttribute b = new HeroAttribute(35,9,32);
         HeroAttribute c = new HeroAttribute(11,10,10);
+//        HeroAttribute d = new HeroAttribute(99,99,99);
 
 
         Armor dress = new Armor("dress",5,a, BODY, CLOTH);
-        Armor legging = new Armor("leggings",2,b, LEGS, CLOTH);
+        Armor legging = new Armor("leggings2",2,b, LEGS, CLOTH);
         Weapon battleAxe = new Weapon("Fire Staff", 1, 12, WEAPON, STAFF);
         Armor helmet = new Armor("Cool Helmet", 2, c, HEAD, PLATE);
+//        Armor legging2 = new Armor("leggings2",2,d, LEGS, CLOTH);
 
         try {
             heroJim.equip(battleAxe);
@@ -52,6 +54,12 @@ public class Main {
         catch (InvalidArmorException e) {
             System.out.println(e.getMessage());
         }
+//        try {
+//            heroJim.equip(legging2);
+//        }
+//        catch (InvalidArmorException e) {
+//            System.out.println(e.getMessage());
+//        }
 
 
 //        System.out.println("\n");

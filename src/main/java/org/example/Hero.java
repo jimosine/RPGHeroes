@@ -19,16 +19,9 @@ public abstract class Hero {
     public Hero(String name) {
         this.name = name;
         this.level = 1;
-        levelAttributes = new HeroAttribute(0,0,0);
+        //levelAttributes = new HeroAttribute(0,0,0);
         /* Would like to improve this more after giving it somre more detail
-        *
-        * //        this.equipment = Map.of(
-        * //                Item.slot.WEAPON, null,
-        * //                Item.slot.HEAD , null,
-        * //                Item.slot.LEGS,  null,
-        * //                Item.slot.BODY, null
-        * //        );
-        * */
+        */
         this.equipment = new HashMap<>();
         equipment.put(Item.Slot.WEAPON, null);
         equipment.put(Item.Slot.HEAD, null);
