@@ -1,9 +1,9 @@
 package org.example;
 
 public class HeroAttribute {
-    public static int str;
-    public static int dex;
-    public static int intel;
+    public int str;
+    public int dex;
+    public int intel;
 
     public HeroAttribute(int str, int dex, int intel){
        this.str = str;
