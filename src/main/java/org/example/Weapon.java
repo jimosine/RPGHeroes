@@ -24,6 +24,11 @@ public class Weapon extends Item {
         return WeaponTypes;
     }
 
+    @Override
+    Armor.ArmorType getArmorTypes() {
+        return null;
+    }
+
     public int getWeaponDamage() {
         return weaponDamage;
     }

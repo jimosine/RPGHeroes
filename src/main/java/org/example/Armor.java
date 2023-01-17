@@ -31,7 +31,14 @@ public class Armor extends Item {
         return null;
     }
 
+    @Override
+    ArmorType getArmorTypes() {
+        return ArmorTypes;
+    }
+
     public int getWeaponDamage() { //MOEST DIT TOEVOEGEN>???
         return 0;
     }
+
+
 }

@@ -30,6 +30,7 @@ public abstract class Item  {
 
     // Hopen dat ik nu in item wel .weapontypes mag noemen
     abstract Weapon.WeaponTypes getWeaponTypes();
+    abstract Armor.ArmorType getArmorTypes();
 
 
     public String getName() {

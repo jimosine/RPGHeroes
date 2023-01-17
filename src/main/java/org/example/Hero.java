@@ -55,46 +55,45 @@ public abstract class Hero {
         this.equipment = equipment;
     }
 
-    public void equip(Item item){
+    /* Even kijken wat hieruit moet en in Mage etc moet */
+    public void equip(Item item) throws InvalidWeaponException, InvalidArmorException {
         int mylvl = level;
         int ilvl = item.getRequiredLevel();
         if (mylvl >= ilvl) {
             equipment.put(item.getSlot(), item);
-        }
-        else {
-            System.out.println("mag niet");
+        } else{
+            throw new InvalidWeaponException("Exception message1");
         }
     }
 
     abstract double damage();
 
     /* Dit allemaal netjes maken nog! */
-    public HeroAttribute totalAttributes(){
+    public HeroAttribute totalAttributes() {
         int total_str = 0;
         int total_dex = 0;
         int total_intel = 0;
-        int i = 0;
-//        System.out.println("\n");
+        //Loop over each <key,value> pair in our Equipment Map
         for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) {
-            i += 1;
-//            System.out.println(entry.getKey());
-            if(entry.getKey().toString().equals("WEAPON")){ //nullpointerexception als waarde null is
+            //If entry is a weapon, don't do anything (except catch NullExceptions)
+            if(entry.getKey().toString().equals("WEAPON")){ //doe niets MAAAAAR: nullpointerexception als waarde null is
             } else {
-//                System.out.println(entry.getValue().getName());
-//                System.out.println(entry.getValue());
-                HeroAttribute values = entry.getValue().getArmorAttribute(); //nullpointerexception gooien
-//                System.out.println(values.getStr());
-//                System.out.println("\n");
-                total_str += values.getStr();
-                total_dex += values.getDex();
-                total_intel += values.getIntel();
+                //It could be that you are wearing no armor, so catch the NullExceptions
+                //Otherwise if you are wearing, add its stats to the total counters
+                try{
+                    HeroAttribute values = entry.getValue().getArmorAttribute();
+                    total_str += values.getStr();
+                    total_dex += values.getDex();
+                    total_intel += values.getIntel();
+                } catch (NullPointerException e){
+//                    System.out.print("Je draagt niets in slot: ");
+//                    System.out.println(entry.getKey().toString());
+                }
             }
         }
-//        System.out.println(total_str+ "/"+total_dex+ "/"+total_intel);
         total_str += getLevelAttributes().getStr();
         total_dex += getLevelAttributes().getDex();
         total_intel += getLevelAttributes().getIntel();
-//        System.out.println(total_str+ "/"+total_dex+ "/"+total_intel);
         return new HeroAttribute(total_str, total_dex,total_intel);
     }
 
