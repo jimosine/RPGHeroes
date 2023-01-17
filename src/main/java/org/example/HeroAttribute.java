@@ -11,33 +11,34 @@ public class HeroAttribute {
        this.intel = intel;
     }
 
-    public static void increaseStats(int str, int dex, int intel){
+    public HeroAttribute increaseStats(int str, int dex, int intel){
         setStr(str + getStr());
         setDex(dex + getDex());
         setIntel(intel + getIntel());
+        return new HeroAttribute(this.str, this.dex, this.intel);
     }
 
-    public static void setStr(int strength){
+    public void setStr(int strength){
         str = strength;
     }
 
-    public static int getStr(){
+    public int getStr(){
         return str;
     }
 
-    public static void setDex(int dexterity){
+    public void setDex(int dexterity){
         dex = dexterity;
     }
 
-    public static int getDex(){
+    public int getDex(){
         return dex;
     }
 
-    public static void setIntel(int intelligence){
+    public void setIntel(int intelligence){
         intel = intelligence;
     }
 
-    public static int getIntel(){
+    public int getIntel(){
         return intel;
     }
 }

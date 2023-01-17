@@ -14,7 +14,11 @@ public class Mage extends Hero{
     @Override
     public void levelUp() {
         setLevel(getLevel() + 1); //kan dit ook verkassen naar de Hero.java want telt voor elke type
-        HeroAttribute.increaseStats(1,1,5);
+
+        //get the current attributes
+        HeroAttribute currentAttributes = getLevelAttributes();
+        setAttributes(currentAttributes.increaseStats(1,1,5));
+
     }
 
     @Override
@@ -56,6 +60,14 @@ public class Mage extends Hero{
 
     public int getLevel(){
         return level;
+    }
+
+    public HeroAttribute getAttributes(){
+        return levelAttributes;
+    }
+
+    public void setAttributes(HeroAttribute attributes){
+        levelAttributes = attributes;
     }
 
 //    public Mage(String name, int level, int levelAttributes, ArrayList<String> validWeaponTypes, ArrayList<String> validArmorTypes) {
