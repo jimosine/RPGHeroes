@@ -18,6 +18,14 @@ public class Armor extends Item {
         this.ArmorTypes = armorTypes;
     }
 
+    public HeroAttribute getArmorAttribute() {
+        return armorAttribute;
+    }
+
+    public void setArmorAttribute(HeroAttribute armorAttribute) {
+        this.armorAttribute = armorAttribute;
+    }
+
     @Override
     public Weapon.WeaponTypes getWeaponTypes() {
         return null;

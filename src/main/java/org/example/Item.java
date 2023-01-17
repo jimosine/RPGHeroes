@@ -6,6 +6,9 @@ public abstract class Item  {
     private final Item.Slot Slot;
     public String name;
     public int requiredLevel;
+
+    public abstract HeroAttribute getArmorAttribute(); //anders kan ik die niet gebruiken in CalcAttributes
+
     enum Slot {
         WEAPON,
         HEAD,

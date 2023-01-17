@@ -10,6 +10,7 @@ public class Mage extends Hero{
 
     }
 
+
     @Override
     public void levelUp() {
         setLevel(getLevel() + 1); //kan dit ook verkassen naar de Hero.java want telt voor elke type
@@ -38,7 +39,7 @@ public class Mage extends Hero{
 
                 //Rules for equiping armor
             } else if (itemType.equals("Armor")) {
-                System.out.println("dit is armor");
+                //System.out.println("dit is armor");
                 equipment.put(item.getSlot(), item);
             } else {
                 System.out.println("niets");

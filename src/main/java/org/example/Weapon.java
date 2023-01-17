@@ -31,4 +31,8 @@ public class Weapon extends Item {
     public void setWeaponsDamage(int weaponDamage) {
         this.weaponDamage = weaponDamage;
     }
+
+    public HeroAttribute getArmorAttribute() { //nmoest ik doen voor calculating total attributes, needs fix
+        return null;
+    }
 }

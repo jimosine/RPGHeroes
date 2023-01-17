@@ -47,6 +47,10 @@ public abstract class Hero {
         return equipment;
     }
 
+    public HeroAttribute getLevelAttributes() {
+        return levelAttributes;
+    }
+
     public void setEquipment(Map<Item.Slot, Item> equipment) {
         this.equipment = equipment;
     }
@@ -66,8 +70,31 @@ public abstract class Hero {
 
     }
 
-    public static void totalAttributes(){
-
+    public HeroAttribute totalAttributes(){
+        int total_str = 0;
+        int total_dex = 0;
+        int total_intel = 0;
+        int i = 0;
+        System.out.println("\n");
+        for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) {
+            System.out.println(i);
+            i += 1;
+            System.out.println(entry.getKey());
+            if(entry.getKey().toString().equals("WEAPON")){ //nullpointerexception als waarde null is
+                continue;
+            } else {
+                System.out.println(entry.getValue().getName());
+                System.out.println(entry.getValue());
+                HeroAttribute values = entry.getValue().getArmorAttribute(); //nullpointerexception gooien
+                System.out.println(values.getStr());
+                System.out.println("\n");
+                total_str += values.getStr();
+                total_dex += values.getDex();
+                total_intel += values.getIntel();
+            }
+        }
+        System.out.println(total_dex);
+        return new HeroAttribute(total_str, total_dex,total_intel);
     }
 
     public void displayStats() {
