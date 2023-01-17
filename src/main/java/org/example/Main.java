@@ -26,7 +26,7 @@ public class Main {
 
         Armor dress = new Armor("dress",5,a, BODY, CLOTH);
         Armor legging = new Armor("leggings",2,b, LEGS, CLOTH);
-        Weapon battleAxe = new Weapon("Fire Staff", 1, 12, WEAPON, AXE);
+        Weapon battleAxe = new Weapon("Fire Staff", 1, 12, WEAPON, STAFF);
         Armor helmet = new Armor("Cool Helmet", 2, c, HEAD, PLATE);
 
         try {
@@ -58,10 +58,7 @@ public class Main {
 //        for (Map.Entry<Item.Slot, Item> entry : heroJim.getEquipment().entrySet()) {
 //            System.out.println(entry.getKey() + ":" + entry.getValue());
 //        }
-        heroJim.totalAttributes();
-        System.out.println("\n");
 
-        heroJim.damage();
 
         heroJim.displayStats();
     }

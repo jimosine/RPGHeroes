@@ -32,7 +32,7 @@ public class Mage extends Hero{
             if (entry.getKey().toString().equals("WEAPON")) { //nullpointerexception als waarde null is
                 //nog even een nullpointerexception maken (dan weaponDmg = 1)
                 weaponDmg = entry.getValue().getWeaponDamage();
-            }} catch (NullPointerException e){
+            }} catch (NullPointerException e2){
                 weaponDmg = 1;
                 }
 //            else {
@@ -46,36 +46,30 @@ public class Mage extends Hero{
     @Override
     public void equip(Item item) throws InvalidWeaponException, InvalidArmorException {
 
-        //Double check for ilvl, because if I don't copy it from Hero.equip I lose it?
-        //AND NEED TO PUT ITEM LEVEL CHECK AFTER WEAPON/ARMOR CHECK
+
         int mylvl = level;
         int ilvl = item.getRequiredLevel();
-        if (mylvl >= ilvl) {
-            String itemType = item.getClass().getSimpleName();
-            //Rules for equiping weapons
-            if (itemType.equals("Weapon")) {
-                String weaponType = item.getWeaponTypes().toString();
-                if (weaponType.equals("WAND") || weaponType.equals("STAFF")) { //NICER IF IT CAN BE A LIST OF OPTIONS INSTEAD OF DOUBLE CONDITION
-                    System.out.println("GELUKT");
-                    equipment.put(item.getSlot(), item);
-                } else{
-                    throw new InvalidWeaponException("Tried to equip invalid weapon");
-                }
-                //Rules for equiping armor
-            } else if (itemType.equals("Armor")) {
+        String itemType = item.getClass().getSimpleName();
+        //Rules for equiping weapons
+        if (itemType.equals("Weapon") && mylvl >= ilvl) {
+            String weaponType = item.getWeaponTypes().toString();
+            if (weaponType.equals("WAND") || weaponType.equals("STAFF")) { //NICER IF IT CAN BE A LIST OF OPTIONS INSTEAD OF DOUBLE CONDITION
+                equipment.put(item.getSlot(), item);
+            } else{
+                throw new InvalidWeaponException("Tried to equip invalid weapon");
+            }
 
-                String armorType = item.getArmorTypes().toString();
-                System.out.println(armorType);
-                if (armorType.equals("CLOTH")){ //NICER IF IT CAN BE A LIST OF OPTIONS INSTEAD OF DOUBLE CONDITION
-                    System.out.println("GELUKT");
-                    equipment.put(item.getSlot(), item);
-                } else{
-                    throw new InvalidArmorException("Tried to equip invalid armor");
-                }
-            } else {
-                System.out.println("niets");
+        //Rules for equiping armor
+        } else if (itemType.equals("Armor") && mylvl >= ilvl) {
+
+            String armorType = item.getArmorTypes().toString();
+            if (armorType.equals("CLOTH")){ //NICER IF IT CAN BE A LIST OF OPTIONS INSTEAD OF DOUBLE CONDITION
+                equipment.put(item.getSlot(), item);
+            } else{
+                throw new InvalidArmorException("Tried to equip invalid armor");
             }
         }
+
     }
 
 

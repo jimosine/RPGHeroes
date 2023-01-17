@@ -12,8 +12,8 @@ public abstract class Hero {
 
     public Map<Item.Slot, Item> equipment; //map of items van type <slot, item>
 
-    private ArrayList<String> validWeaponTypes;
-    private ArrayList<String> validArmorTypes;
+    public ArrayList<String> validWeaponTypes;
+    public ArrayList<String> validArmorTypes;
 
 
     public Hero(String name) {
@@ -55,16 +55,8 @@ public abstract class Hero {
         this.equipment = equipment;
     }
 
-    /* Even kijken wat hieruit moet en in Mage etc moet */
-    public void equip(Item item) throws InvalidWeaponException, InvalidArmorException {
-        int mylvl = level;
-        int ilvl = item.getRequiredLevel();
-        if (mylvl >= ilvl) {
-            equipment.put(item.getSlot(), item);
-        } else{
-            throw new InvalidWeaponException("Exception message1");
-        }
-    }
+   //Maybe not abstract and do level check here?
+    abstract void equip(Item item) throws InvalidWeaponException, InvalidArmorException;
 
     abstract double damage();
 
@@ -85,7 +77,7 @@ public abstract class Hero {
                     total_str += values.getStr();
                     total_dex += values.getDex();
                     total_intel += values.getIntel();
-                } catch (NullPointerException e){
+                } catch (NullPointerException e1){
 //                    System.out.print("Je draagt niets in slot: ");
 //                    System.out.println(entry.getKey().toString());
                 }
