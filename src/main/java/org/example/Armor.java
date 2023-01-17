@@ -30,4 +30,8 @@ public class Armor extends Item {
     public Weapon.WeaponTypes getWeaponTypes() {
         return null;
     }
+
+    public int getWeaponDamage() { //MOEST DIT TOEVOEGEN>???
+        return 0;
+    }
 }

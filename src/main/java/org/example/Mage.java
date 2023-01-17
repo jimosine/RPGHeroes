@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Map;
+
 public class Mage extends Hero{
 
 
@@ -21,6 +23,22 @@ public class Mage extends Hero{
 
     }
 
+    @Override
+    public double damage() {
+        int weaponDmg = 1;
+        double heroDmg = 0;
+        for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) {
+            if (entry.getKey().toString().equals("WEAPON")) { //nullpointerexception als waarde null is
+                //nog even een nullpointerexception maken (dan weaponDmg = 1)
+                weaponDmg = entry.getValue().getWeaponDamage();
+            } else {
+                continue;
+            }
+        }
+        double damagingAttribute = totalAttributes().getDex();
+        heroDmg = weaponDmg * (1 + damagingAttribute / 100);
+        return heroDmg;
+    }
     @Override
     public void equip(Item item) {
 

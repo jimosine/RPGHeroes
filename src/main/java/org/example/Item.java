@@ -9,6 +9,8 @@ public abstract class Item  {
 
     public abstract HeroAttribute getArmorAttribute(); //anders kan ik die niet gebruiken in CalcAttributes
 
+    public abstract int getWeaponDamage(); //zelfde voor deze
+
     enum Slot {
         WEAPON,
         HEAD,

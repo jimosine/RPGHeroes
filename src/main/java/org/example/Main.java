@@ -9,10 +9,10 @@ import static org.example.Armor.ArmorType.*;
 public class Main {
     public static void main(String[] args) {
         Mage heroJim = new Mage("Jim");
-        heroJim.displayStats();
+        //heroJim.displayStats();
         heroJim.levelUp();
 
-        heroJim.displayStats();
+        //heroJim.displayStats();
 
         //Dit hoeft niet
         System.out.println("\n");
@@ -30,7 +30,7 @@ public class Main {
 
         Armor dress = new Armor("dress",2,a, BODY, CLOTH);
         Armor legging = new Armor("leggings",2,b, LEGS, CLOTH);
-        Weapon battleAxe = new Weapon("Battle Axe", 1, 12, WEAPON, Weapon.WeaponTypes.AXE);
+        Weapon battleAxe = new Weapon("Fire Staff", 1, 12, WEAPON, Weapon.WeaponTypes.STAFF);
         Armor helmet = new Armor("Cool Helmet", 2, c, HEAD, PLATE);
 
         heroJim.equip(battleAxe);
@@ -43,7 +43,12 @@ public class Main {
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
 
-        System.out.println(heroJim.totalAttributes().getStr()); //geeft raar gedrag, verander maar de str van de helm
+        heroJim.totalAttributes();
+
+        System.out.println("\n");
+        heroJim.damage();
+
+        heroJim.displayStats();
     }
 
 }
