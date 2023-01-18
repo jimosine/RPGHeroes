@@ -12,6 +12,7 @@ public abstract class Hero {
 
     public Map<Item.Slot, Item> equipment; //map of items van type <slot, item>
 
+    //So I don't get it yet why we have to declare here?
     public ArrayList<String> validWeaponTypes;
     public ArrayList<String> validArmorTypes;
 
@@ -27,7 +28,8 @@ public abstract class Hero {
         equipment.put(Item.Slot.HEAD, null);
         equipment.put(Item.Slot.BODY, null);
         equipment.put(Item.Slot.LEGS, null);
-
+        this.validWeaponTypes = new ArrayList<>();
+        this.validArmorTypes = new ArrayList<>();
 
     }
     public abstract void levelUp();
