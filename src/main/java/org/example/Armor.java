@@ -5,7 +5,7 @@ public class Armor extends Item {
     private final Armor.ArmorType ArmorTypes;
 
 
-    enum ArmorType {
+    public enum ArmorType {
         CLOTH,
         LEATHER,
         MAIL,
@@ -32,7 +32,7 @@ public class Armor extends Item {
     }
 
     @Override
-    ArmorType getArmorTypes() {
+    public ArmorType getArmorTypes() {
         return ArmorTypes;
     }
 

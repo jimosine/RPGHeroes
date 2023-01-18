@@ -49,7 +49,7 @@ public abstract class Hero {
     }
 
    //Maybe not abstract and do level check here?
-    abstract void equip(Item item) throws InvalidWeaponException, InvalidArmorException;
+    public abstract void equip(Item item) throws InvalidWeaponException, InvalidArmorException;
 
     abstract double damage();
 

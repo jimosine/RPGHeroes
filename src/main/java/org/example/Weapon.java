@@ -3,7 +3,7 @@ package org.example;
 public class Weapon extends Item {
     int weaponDamage;
     private final Weapon.WeaponTypes WeaponTypes;
-    enum WeaponTypes{
+    public enum WeaponTypes{
         AXE,
         BOW,
         DAGGER,

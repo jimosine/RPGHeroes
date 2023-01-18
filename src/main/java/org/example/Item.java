@@ -11,7 +11,7 @@ public abstract class Item  {
 
     public abstract int getWeaponDamage(); //zelfde voor deze
 
-    enum Slot {
+    public enum Slot {
         WEAPON,
         HEAD,
         BODY,

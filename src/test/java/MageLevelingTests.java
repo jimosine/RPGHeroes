@@ -22,4 +22,14 @@ public class MageLevelingTests {
             assertEquals(new HeroAttribute(2,2,13).getIntel(), heroJim.getLevelAttributes().getIntel());
         }
 
+        @Test
+        void increasingStatsChecker(){
+            //Check if we can correctly increase a Hero's attributes
+            HeroAttribute stats = new HeroAttribute(1,1,1).increaseStats(1,1,1);
+            HeroAttribute toCheck = new HeroAttribute(2, 2, 2);
+            assertEquals(toCheck.getStr(), stats.getStr());
+            assertEquals(toCheck.getDex(), stats.getDex());
+            assertEquals(toCheck.getIntel(), stats.getIntel());
+        }
+
 }

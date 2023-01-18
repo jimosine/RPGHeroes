@@ -27,7 +27,7 @@ public class Mage extends Hero{
     public double damage() throws NullPointerException {
         int weaponDmg = 1;
         double heroDmg = 0;
-        for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) {
+        for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) { //omschrijven om met key weapon de value op te halen
             try{
             if (entry.getKey().toString().equals("WEAPON")) {
                 weaponDmg = entry.getValue().getWeaponDamage();
@@ -38,7 +38,7 @@ public class Mage extends Hero{
 //                continue;
 //            }
         }
-        double damagingAttribute = totalAttributes().getDex();
+        double damagingAttribute = totalAttributes().getIntel();
         heroDmg = weaponDmg * (1 + damagingAttribute / 100);
         return heroDmg;
     }
@@ -50,8 +50,18 @@ public class Mage extends Hero{
         int ilvl = item.getRequiredLevel();
         String itemType = item.getClass().getSimpleName();
         //Rules for equiping weapons
+
+        /* Even hier wat tests of die exception werkend te krijgen*/
+
+        if (mylvl < ilvl) throw new InvalidWeaponException("Tried to equip invalid weapon");
+        String weaponType = item.getWeaponTypes().toString();
+        //MOET EVEN DIE EQUIPABLE LIJST MAKEN
+        if (weaponType.equals("AXE")) throw new InvalidWeaponException("Tried to equip invalid weapon");
+
+        /* tot hier */
+
         if (itemType.equals("Weapon") && mylvl >= ilvl) {
-            String weaponType = item.getWeaponTypes().toString();
+            //String weaponType = item.getWeaponTypes().toString();
             if (weaponType.equals("WAND") || weaponType.equals("STAFF")) { //NICER IF IT CAN BE A LIST OF OPTIONS INSTEAD OF DOUBLE CONDITION
                 equipment.put(item.getSlot(), item);
             } else{
