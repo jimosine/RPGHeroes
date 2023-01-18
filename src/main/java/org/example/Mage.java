@@ -66,9 +66,9 @@ public class Mage extends Hero{
             equipment.put(item.getSlot(), item);
         } else if (itemType.equals("Armor")) {
             String armorType = item.getArmorTypes().toString();
-            if (mylvl < ilvl) throw new InvalidWeaponException("Tried to equip invalid weapon");
+            if (mylvl < ilvl) throw new InvalidArmorException("Tried to equip invalid armor");
             if (!validArmorTypes.contains(armorType))
-                throw new InvalidWeaponException("Tried to equip invalid armor");
+                throw new InvalidArmorException("Tried to equip invalid armor");
             equipment.put(item.getSlot(), item);
         }
 //        if (itemType.equals("Weapon") && mylvl >= ilvl) {

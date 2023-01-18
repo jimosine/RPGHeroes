@@ -53,7 +53,7 @@ public abstract class Hero {
    //Maybe not abstract and do level check here?
     public abstract void equip(Item item) throws InvalidWeaponException, InvalidArmorException;
 
-    abstract double damage();
+    public abstract double damage();
 
     /* Dit allemaal netjes maken nog! */
     public HeroAttribute totalAttributes() {
@@ -84,16 +84,27 @@ public abstract class Hero {
         return new HeroAttribute(total_str, total_dex,total_intel);
     }
 
-    public void displayStats() {
+    public String displayStats() {
+        StringBuilder str = new StringBuilder();
+        str.append(name);
+        str.append(this.getClass().getSimpleName());
+        str.append(level);
+        HeroAttribute att1 = totalAttributes();
+        str.append(att1.getStr());
+        str.append(att1.getDex());
+        str.append(att1.getIntel());
+        str.append(damage());
         //omschrijven tot een String Builder
         System.out.println("Name: " + name);
         System.out.println("Class: " + this.getClass().getSimpleName());
         System.out.println("Level: " + level);
-        HeroAttribute att1 = totalAttributes();
+
         System.out.println("Total strength: " + att1.getStr());
         System.out.println("Total dexterity: " + att1.getDex());
         System.out.println("Total intelligence: " + att1.getIntel());
         System.out.println("Total damage: " + damage());
+
+        return str.toString();
     }
 
     public String getName() {

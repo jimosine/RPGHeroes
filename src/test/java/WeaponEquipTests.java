@@ -13,7 +13,7 @@ public class WeaponEquipTests {
     //Test if the hero can correctly equip weapons
     @Test
     void weaponEquipChecker() throws InvalidArmorException, InvalidWeaponException {
-        Weapon staff = new Weapon("Fire Staff", 1, 12, WEAPON, STAFF);
+        Weapon staff = new Weapon("Fire Staff", 1, 1, WEAPON, STAFF);
         Hero heroJim = new Mage("Jim");
 
         heroJim.equip(staff);
@@ -22,10 +22,10 @@ public class WeaponEquipTests {
     }
 
     @Test
-    public void weaponIllegalLevelChecker() throws InvalidArmorException, InvalidWeaponException {
+    public void weaponIllegalLevelChecker(){
 
         // Arrange
-        Weapon lavaStaff = new Weapon("Lava Staff", 5, 12, WEAPON, STAFF);
+        Weapon lavaStaff = new Weapon("Lava Staff", 5, 1, WEAPON, STAFF);
         Hero heroJim = new Mage("Jim");
         String expected = "Tried to equip invalid weapon";
 

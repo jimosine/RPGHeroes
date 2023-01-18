@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WeaponCreationTests {
     //Create a basic staff to be used in the testing
-    Weapon staff = new Weapon("Fire Staff", 1, 12, WEAPON, STAFF);
+    Weapon staff = new Weapon("Fire Staff", 1, 1, WEAPON, STAFF);
 
     //Test if the correct name is returned
     @Test
@@ -35,6 +35,6 @@ public class WeaponCreationTests {
     //Test if the correct weapon damage is returned
     @Test
     void weaponDamageChecker() {
-        assertEquals(12, staff.getWeaponDamage());
+        assertEquals(1, staff.getWeaponDamage());
     }
 }
