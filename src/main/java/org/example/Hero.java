@@ -94,4 +94,11 @@ public abstract class Hero {
         System.out.println("Total damage: " + damage());
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
