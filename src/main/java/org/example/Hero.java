@@ -30,7 +30,7 @@ public abstract class Hero {
 
 
     }
-    abstract void levelUp();
+    public abstract void levelUp();
             // Is it a choice to either make this abstract and put it in child classes
             // or de we want it all here and override the increaseStats in child classes?
 //        HeroAttribute.increaseStats(1,1,2);
@@ -96,6 +96,10 @@ public abstract class Hero {
 
     public String getName() {
         return name;
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public void setName(String name) {
