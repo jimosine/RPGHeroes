@@ -1,8 +1,8 @@
-import org.example.Weapon;
+import items.Weapon;
 import org.junit.jupiter.api.Test;
 
-import static org.example.Item.Slot.*;
-import static org.example.Weapon.WeaponTypes.*;
+import static items.Item.Slot.*;
+import static items.Weapon.WeaponTypes.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WeaponCreationTests {

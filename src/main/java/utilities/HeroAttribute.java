@@ -1,4 +1,4 @@
-package org.example;
+package utilities;
 
 public class HeroAttribute {
     public int str;

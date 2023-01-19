@@ -1,9 +1,14 @@
-import org.example.*;
+import heroes.Hero;
+import heroes.Mage;
+import items.*;
 import org.junit.jupiter.api.Test;
+import utilities.HeroAttribute;
+import utilities.InvalidArmorException;
+import utilities.InvalidWeaponException;
 
-import static org.example.Armor.ArmorType.CLOTH;
-import static org.example.Item.Slot.BODY;
-import static org.example.Item.Slot.HEAD;
+import static items.Armor.ArmorType.CLOTH;
+import static items.Item.Slot.BODY;
+import static items.Item.Slot.HEAD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TotalAttributesTests {

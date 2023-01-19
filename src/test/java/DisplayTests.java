@@ -1,5 +1,5 @@
-import org.example.Hero;
-import org.example.Mage;
+import heroes.Hero;
+import heroes.Mage;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

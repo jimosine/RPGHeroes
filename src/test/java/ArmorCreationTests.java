@@ -1,9 +1,9 @@
-import org.example.Armor;
-import org.example.HeroAttribute;
+import items.Armor;
+import utilities.HeroAttribute;
 import org.junit.jupiter.api.Test;
 
-import static org.example.Armor.ArmorType.*;
-import static org.example.Item.Slot.*;
+import static items.Armor.ArmorType.*;
+import static items.Item.Slot.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ArmorCreationTests {

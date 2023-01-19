@@ -1,21 +1,24 @@
-package org.example;
+package heroes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import utilities.HeroAttribute;
+import utilities.InvalidArmorException;
+import utilities.InvalidWeaponException;
+import items.Item;
+
 import java.util.Map;
 
-public class Ranger extends Hero{
+public class Mage extends Hero {
 
 
-    public Ranger(String name) {
+    public Mage(String name) {
         super(name);
         //this.level = 1;
-        this.levelAttributes = new HeroAttribute(1,7,1);
+        this.levelAttributes = new HeroAttribute(1,1,8);
 
         //Add all valid item types
-        validWeaponTypes.add("BOW");
-        validArmorTypes.add("LEATHER");
-        validArmorTypes.add("MAIL");
+        validWeaponTypes.add("WAND");
+        validWeaponTypes.add("STAFF");
+        validArmorTypes.add("CLOTH");
     }
 
 
@@ -25,7 +28,7 @@ public class Ranger extends Hero{
 
         //get the current attributes
         HeroAttribute currentAttributes = getLevelAttributes();
-        setAttributes(currentAttributes.increaseStats(1,5,1));
+        setAttributes(currentAttributes.increaseStats(1,1,5));
 
     }
 
@@ -35,16 +38,16 @@ public class Ranger extends Hero{
         double heroDmg = 0;
         for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) { //omschrijven om met key weapon de value op te halen
             try{
-                if (entry.getKey().toString().equals("WEAPON")) {
-                    weaponDmg = entry.getValue().getWeaponDamage();
-                }} catch (NullPointerException e2){
+            if (entry.getKey().toString().equals("WEAPON")) {
+                weaponDmg = entry.getValue().getWeaponDamage();
+            }} catch (NullPointerException e2){
                 weaponDmg = 1;
-            }
+                }
 //            else {
 //                continue;
 //            }
         }
-        double damagingAttribute = totalAttributes().getDex();
+        double damagingAttribute = totalAttributes().getIntel();
         heroDmg = weaponDmg * (1 + damagingAttribute / 100);
         return heroDmg;
     }

@@ -1,11 +1,12 @@
-package org.example;
-
-import java.util.Map;
-
 //Automatically done when trying to add slot enum
-import static org.example.Item.Slot.*;
-import static org.example.Armor.ArmorType.*;
-import static org.example.Weapon.WeaponTypes.*;
+import heroes.Mage;
+import items.Armor;
+import items.Weapon;
+import utilities.HeroAttribute;
+import utilities.InvalidArmorException;
+import utilities.InvalidWeaponException;
+
+import static items.Item.Slot.*;
 
 public class Main {
     public static void main(String[] args) throws InvalidWeaponException, InvalidArmorException {
@@ -25,10 +26,10 @@ public class Main {
 //        HeroAttribute d = new HeroAttribute(99,99,99);
 
 
-        Armor dress = new Armor("dress",5,a, BODY, CLOTH);
-        Armor legging = new Armor("leggings2",2,b, LEGS, CLOTH);
-        Weapon battleAxe = new Weapon("Fire Staff", 1, 12, WEAPON, STAFF);
-        Armor helmet = new Armor("Cool Helmet", 2, c, HEAD, PLATE);
+        Armor dress = new Armor("dress",5,a, BODY, Armor.ArmorType.CLOTH);
+        Armor legging = new Armor("leggings2",2,b, LEGS, Armor.ArmorType.CLOTH);
+        Weapon battleAxe = new Weapon("Fire Staff", 1, 12, WEAPON, Weapon.WeaponTypes.STAFF);
+        Armor helmet = new Armor("Cool Helmet", 2, c, HEAD, Armor.ArmorType.PLATE);
 //        Armor legging2 = new Armor("leggings2",2,d, LEGS, CLOTH);
 
         try {
@@ -67,8 +68,7 @@ public class Main {
 //            System.out.println(entry.getKey() + ":" + entry.getValue());
 //        }
 
-
-        heroJim.displayStats();
+        System.out.println(heroJim.displayStats());
     }
 
 }

@@ -1,23 +1,25 @@
-package org.example;
+package heroes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import utilities.HeroAttribute;
+import utilities.InvalidArmorException;
+import utilities.InvalidWeaponException;
+import items.Item;
+
 import java.util.Map;
 
-public class Warrior extends Hero{
+public class Rogue extends Hero {
 
 
-    public Warrior(String name) {
+    public Rogue(String name) {
         super(name);
         //this.level = 1;
-        this.levelAttributes = new HeroAttribute(5,2,1);
+        this.levelAttributes = new HeroAttribute(2,6,1);
 
         //Add all valid item types
-        validWeaponTypes.add("AXE");
+        validWeaponTypes.add("DAGGER");
         validWeaponTypes.add("SWORD");
-        validWeaponTypes.add("HAMMER");
+        validArmorTypes.add("LEATHER");
         validArmorTypes.add("MAIL");
-        validArmorTypes.add("PLATE");
     }
 
 
@@ -27,7 +29,7 @@ public class Warrior extends Hero{
 
         //get the current attributes
         HeroAttribute currentAttributes = getLevelAttributes();
-        setAttributes(currentAttributes.increaseStats(3,2,1));
+        setAttributes(currentAttributes.increaseStats(1,4,1));
 
     }
 
@@ -46,7 +48,7 @@ public class Warrior extends Hero{
 //                continue;
 //            }
         }
-        double damagingAttribute = totalAttributes().getStr();
+        double damagingAttribute = totalAttributes().getDex();
         heroDmg = weaponDmg * (1 + damagingAttribute / 100);
         return heroDmg;
     }

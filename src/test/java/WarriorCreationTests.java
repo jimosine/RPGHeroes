@@ -1,6 +1,6 @@
-import org.example.Hero;
-import org.example.HeroAttribute;
-import org.example.Warrior;
+import heroes.Hero;
+import utilities.HeroAttribute;
+import heroes.Warrior;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

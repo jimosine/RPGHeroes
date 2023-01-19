@@ -1,6 +1,6 @@
-package org.example;
+package items;
 
-import java.util.HashMap;
+import utilities.HeroAttribute;
 
 public abstract class Item  {
     private final Item.Slot Slot;
@@ -29,8 +29,8 @@ public abstract class Item  {
     }
 
     // Hopen dat ik nu in item wel .weapontypes mag noemen
-    abstract Weapon.WeaponTypes getWeaponTypes();
-    abstract Armor.ArmorType getArmorTypes();
+    public abstract Weapon.WeaponTypes getWeaponTypes();
+    public abstract Armor.ArmorType getArmorTypes();
 
 
     public String getName() {

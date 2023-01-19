@@ -1,10 +1,13 @@
-import org.example.*;
+import heroes.Hero;
+import heroes.Mage;
+import items.*;
 import org.junit.jupiter.api.Test;
+import utilities.HeroAttribute;
+import utilities.InvalidArmorException;
+import utilities.InvalidWeaponException;
 
-import static org.example.Armor.ArmorType.*;
-import static org.example.Item.Slot.*;
-
-import static org.example.Weapon.WeaponTypes.AXE;
+import static items.Armor.ArmorType.*;
+import static items.Item.Slot.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

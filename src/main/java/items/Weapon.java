@@ -1,4 +1,6 @@
-package org.example;
+package items;
+
+import utilities.HeroAttribute;
 
 public class Weapon extends Item {
     int weaponDamage;
@@ -25,7 +27,7 @@ public class Weapon extends Item {
     }
 
     @Override
-    Armor.ArmorType getArmorTypes() {
+    public Armor.ArmorType getArmorTypes() {
         return null;
     }
 

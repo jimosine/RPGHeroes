@@ -1,4 +1,9 @@
-package org.example;
+package heroes;
+
+import utilities.HeroAttribute;
+import utilities.InvalidArmorException;
+import utilities.InvalidWeaponException;
+import items.Item;
 
 import java.util.ArrayList;
 import java.util.HashMap;

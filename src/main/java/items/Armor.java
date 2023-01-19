@@ -1,4 +1,6 @@
-package org.example;
+package items;
+
+import utilities.HeroAttribute;
 
 public class Armor extends Item {
     HeroAttribute armorAttribute;
