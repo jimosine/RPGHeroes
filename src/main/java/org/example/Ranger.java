@@ -4,20 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-public class Warrior extends Hero{
+public class Ranger extends Hero{
 
 
-    public Warrior(String name) {
+    public Ranger(String name) {
         super(name);
         //this.level = 1;
-        this.levelAttributes = new HeroAttribute(5,2,1);
+        this.levelAttributes = new HeroAttribute(1,7,1);
 
         //Add all valid item types
-        validWeaponTypes.add("AXE");
-        validWeaponTypes.add("SWORD");
-        validWeaponTypes.add("HAMMER");
+        validWeaponTypes.add("BOW");
+        validArmorTypes.add("LEATHER");
         validArmorTypes.add("MAIL");
-        validArmorTypes.add("PLATE");
     }
 
 
@@ -27,7 +25,7 @@ public class Warrior extends Hero{
 
         //get the current attributes
         HeroAttribute currentAttributes = getLevelAttributes();
-        setAttributes(currentAttributes.increaseStats(3,2,1));
+        setAttributes(currentAttributes.increaseStats(1,5,1));
 
     }
 
@@ -46,7 +44,7 @@ public class Warrior extends Hero{
 //                continue;
 //            }
         }
-        double damagingAttribute = totalAttributes().getStr();
+        double damagingAttribute = totalAttributes().getDex();
         heroDmg = weaponDmg * (1 + damagingAttribute / 100);
         return heroDmg;
     }
