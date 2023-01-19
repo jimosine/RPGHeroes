@@ -95,14 +95,14 @@ public abstract class Hero {
         str.append(att1.getIntel());
         str.append(damage());
         //omschrijven tot een String Builder
-        System.out.println("Name: " + name);
-        System.out.println("Class: " + this.getClass().getSimpleName());
-        System.out.println("Level: " + level);
-
-        System.out.println("Total strength: " + att1.getStr());
-        System.out.println("Total dexterity: " + att1.getDex());
-        System.out.println("Total intelligence: " + att1.getIntel());
-        System.out.println("Total damage: " + damage());
+//        System.out.println("Name: " + name);
+//        System.out.println("Class: " + this.getClass().getSimpleName());
+//        System.out.println("Level: " + level);
+//
+//        System.out.println("Total strength: " + att1.getStr());
+//        System.out.println("Total dexterity: " + att1.getDex());
+//        System.out.println("Total intelligence: " + att1.getIntel());
+//        System.out.println("Total damage: " + damage());
 
         return str.toString();
     }
