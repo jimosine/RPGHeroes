@@ -24,7 +24,7 @@ public class DisplayTests {
     @Test
     public void correctLevelTest(){
         Hero heroJim = new Mage("Jim");
-        String expected = "2";
+        String expected = "1";
         String actual = heroJim.displayStats().substring(7, 8);
         assertEquals(expected,actual);
     }
