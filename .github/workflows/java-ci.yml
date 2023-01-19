@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-test:
+  build-test-report:
     runs-on: macos-latest
 
     steps:
@@ -20,10 +20,6 @@ jobs:
           cache: maven
       - name: Run Unit Test
         run: mvn -B test --file pom.xml
-  report:
-    runs-on: macos-latest
-    
-    steps:
       - name: Publish Surefire Test Report
         uses: ScaCap/action-surefire-report@v1.3.0
 
