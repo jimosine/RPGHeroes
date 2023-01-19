@@ -1,0 +1,9 @@
+ArmorCreationTests.class
+DisplayTests.class
+TotalAttributesTests.class
+WeaponEquipTests.class
+ArmorEquipTests.class
+MageLevelingTests.class
+WeaponCreationTests.class
+MageCreationTests.class
+DamageTests.class
