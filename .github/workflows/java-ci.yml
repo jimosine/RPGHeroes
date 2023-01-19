@@ -20,6 +20,4 @@ jobs:
           cache: maven
       - name: Run Unit Test
         run: mvn -B test --file pom.xml
-      - name: Publish Test Report
-        if: ${{ always() }}
-        uses: scacap/action-surefire-report@v1
+
