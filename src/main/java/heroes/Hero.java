@@ -56,7 +56,7 @@ public abstract class Hero {
         //the hero's equipment variable
         if (itemType.equals("Weapon")) {
             String weaponType = item.getWeaponTypes().toString();
-            if (level < itemLevel) throw new InvalidWeaponException("Tried to equip invalid weapon");
+            if (level < itemLevel) throw new InvalidWeaponException("Your level it too low to equip this weapon");
             if (!validWeaponTypes.contains(weaponType))
                 throw new InvalidWeaponException("Tried to equip invalid weapon");
             equipment.put(item.getSlot(), item);
@@ -66,7 +66,7 @@ public abstract class Hero {
         //message.
         } else if (itemType.equals("Armor")) {
             String armorType = item.getArmorTypes().toString();
-            if (level < itemLevel) throw new InvalidArmorException("Tried to equip invalid armor");
+            if (level < itemLevel) throw new InvalidArmorException("Your level it too low to equip this armor");
             if (!validArmorTypes.contains(armorType))
                 throw new InvalidArmorException("Tried to equip invalid armor");
             equipment.put(item.getSlot(), item);

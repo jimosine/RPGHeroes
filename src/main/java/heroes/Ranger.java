@@ -48,9 +48,8 @@ public class Ranger extends Hero {
         try {
             weaponDmg = this.getEquipment().get(WEAPON).getWeaponDamage();
             //If not wearing a weapon (= null), return weapon damage as 1
-        } catch (NullPointerException e2){
-            weaponDmg = 1;
-        }
+            //If not wearing a weapon (= null), return default weapon damage
+        } catch (NullPointerException e2){}
 
         //We need to retrieve the total dexterity (level + armor) and use this stat for our damage calculation
         double damagingAttribute = totalAttributes().getDex();

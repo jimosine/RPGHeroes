@@ -20,10 +20,10 @@ public class Weapon extends Item {
         WAND
     }
 
-    //New weapons are constructed using the general name parameters, required level, item slot and weapon specific
-    //parameters for the weapon's damage and type.
-    public Weapon(String name, int requiredLevel, int weaponDamage, Slot slot, WeaponTypes weaponsType) {
-        super(name, requiredLevel, slot);
+    //New weapons are constructed using the general name parameters, required level, item slot (which we set to weapon
+    // by default) and weapon specific parameters for the weapon's damage and type.
+    public Weapon(String name, int requiredLevel, int weaponDamage, Slot WEAPON, WeaponTypes weaponsType) {
+        super(name, requiredLevel, WEAPON);
         this.weaponDamage = weaponDamage;
         this.WeaponTypes = weaponsType;
     }

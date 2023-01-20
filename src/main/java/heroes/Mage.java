@@ -45,10 +45,8 @@ public class Mage extends Hero {
         //Try and retrieve the weapon damage by searching for the WEAPON key in our equipment HashMap
         try {
             weaponDmg = this.getEquipment().get(WEAPON).getWeaponDamage();
-            //If not wearing a weapon (= null), return weapon damage as 1
-        } catch (NullPointerException e2){
-                weaponDmg = 1;
-                }
+            //If not wearing a weapon (= null), return default weapon damage
+        } catch (NullPointerException e2){}
 
         //We need to retrieve the total intelligence (level + armor) and use this stat for our damage calculation
         double damagingAttribute = totalAttributes().getIntel();
