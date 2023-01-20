@@ -1,27 +1,28 @@
 # RPGHeroes - Assignment 1
 
 
-#H2 Description
+## Description
 
-What is the goal of the project.
+First Assignment for the Full-stack Development with Java bootcamp from Noroff. The task was to build a console application in Java, I have opted to go for a **Maven build**. The application is reponsible from creating various *hero classes* with attributes which increase at different rates as the character gains levels. Heroes can wear equipment, such as *armor* and *weapons* which when equipped will alter the power of the hero. Certain hero classes can equip certain item types. When invalid items are being equipped, *custom exceptions* will be thrown. 
 
-#H2 How to run
+The functionality of the application is tested extensively through unit testing (using **JUnit**) for all methods that belong to the various classes.
 
-Some public facing methods to create, level your hero. Equip weapons and armor, and calculate your damage. 
+## How to run
 
-Unit tests have been created for all these methods, and a automated test report can be found under the **Github Actions** tab.
-See picture:
+Although there is a main function which is able to run all of the required methods, no actual output is returned. The task for this assignment is to return a unit test report, which is automated to be created on every push for this repo. To find this test report, go to the **Github Actions** tab and click on the most recent action. Click once more on the *build-test* action to land on a page where you can see all the steps taken. If you unfold the *Run Unit Test* step, you can see a report as seen in the picture below:
 
 ![alt text](instructions.jpg)
 
-#H2 Structure
+## Structure
 
-Three packages:
+The application is structured in three packages:
 
-1. heroes: All hero related classes ()
-2. items: All equipment related classes ()
-3. utilities: All classes related to useful tools () 
+1. heroes: All hero related classes
+2. items: All equipment related classes
+3. utilities: The two custom exception classes and a HeroAttribute object class 
 
-Test folder:
+Then there is also the test folder:
+  Test classes have been created for each of the classes with unit tests for all import methods.
 
-Classes have been created for different unit tests
+Configuration for Maven and JUnit has been done in the pom.xml file
+
