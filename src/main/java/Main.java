@@ -26,8 +26,8 @@ public class Main {
         HeroAttribute c = new HeroAttribute(11,10,10);
 
 
-        Armor dress = new Armor("dress",5,a, BODY, CLOTH);
-        Armor legging = new Armor("leggings2",2,b, LEGS, CLOTH);
+        Armor dress = new Armor("Dress",5,a, BODY, CLOTH);
+        Armor legging = new Armor("Leggings",2,b, LEGS, CLOTH);
         Weapon staff = new Weapon("Fire Staff", 1, 12, WEAPON, STAFF);
         Armor helmet = new Armor("Cool Helmet", 2, c, HEAD, PLATE);
 
