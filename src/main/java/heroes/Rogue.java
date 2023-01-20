@@ -1,18 +1,21 @@
 package heroes;
 
+/* Imports */
 import utilities.HeroAttribute;
-import utilities.InvalidArmorException;
-import utilities.InvalidWeaponException;
-import items.Item;
+import static items.Item.Slot.WEAPON;
 
-import java.util.Map;
-
+/* In this child class of Hero, we define a Rogue specific hero which is good with dexterity. The two abstract classes
+ * levelUp() and damage() are overwritten as a rogue gets experience in dexterity when leveling and this stat is used
+ * for the damage calculations. A ranger starts with 2 strength, 6 dexterity and 1 intelligence points and is able to
+ * equip daggers and swords as weapons, and leather & mail armor.
+ *  */
 public class Rogue extends Hero {
 
 
+    //Constructor for our rogue. We use the name as provided by the user, and update the rogue's stats and equipable
+    // items
     public Rogue(String name) {
         super(name);
-        //this.level = 1;
         this.levelAttributes = new HeroAttribute(2,6,1);
 
         //Add all valid item types
@@ -22,10 +25,12 @@ public class Rogue extends Hero {
         validArmorTypes.add("MAIL");
     }
 
-
+    //Override the abstract levelUp method in Hero. Whenever a rogue gets to level up, we need to increase its level by
+    //1 and increase its attributes by 1 strength, 4 dexterity and 1 intelligence points. For this we use the
+    //increaseStats methods, which belongs to the HeroAttribute class.
     @Override
     public void levelUp() {
-        setLevel(getLevel() + 1); //kan dit ook verkassen naar de Hero.java want telt voor elke type
+        setLevel(getLevel() + 1);
 
         //get the current attributes
         HeroAttribute currentAttributes = getLevelAttributes();
@@ -33,83 +38,24 @@ public class Rogue extends Hero {
 
     }
 
+    //Calculations for the damage output for a rogue are dependent on the weapon it's wearing and its dexterity.
+    //We can encounter null values whenever a hero is not wearing weapons, which we need to account for.
+    //If no weapons are equipped, we set the weaponDamage stat to 1, otherwise we retrieve it.
     @Override
     public double damage() throws NullPointerException {
         int weaponDmg = 1;
-        double heroDmg = 0;
-        for (Map.Entry<Item.Slot, Item> entry : this.getEquipment().entrySet()) { //omschrijven om met key weapon de value op te halen
-            try{
-                if (entry.getKey().toString().equals("WEAPON")) {
-                    weaponDmg = entry.getValue().getWeaponDamage();
-                }} catch (NullPointerException e2){
-                weaponDmg = 1;
-            }
-//            else {
-//                continue;
-//            }
+
+        //Try and retrieve the weapon damage by searching for the WEAPON key in our equipment HashMap
+        try {
+            weaponDmg = this.getEquipment().get(WEAPON).getWeaponDamage();
+            //If not wearing a weapon (= null), return weapon damage as 1
+        } catch (NullPointerException e2){
+            weaponDmg = 1;
         }
+
+        //We need to retrieve the total dexterity (level + armor) and use this stat for our damage calculation
         double damagingAttribute = totalAttributes().getDex();
-        heroDmg = weaponDmg * (1 + damagingAttribute / 100);
-        return heroDmg;
-    }
-    @Override
-    public void equip(Item item) throws InvalidWeaponException, InvalidArmorException {
-
-
-        int mylvl = level;
-        int ilvl = item.getRequiredLevel();
-        String itemType = item.getClass().getSimpleName();
-
-        if (itemType.equals("Weapon")) {
-            String weaponType = item.getWeaponTypes().toString();
-            //Rules for equiping weapons
-
-            if (mylvl < ilvl) throw new InvalidWeaponException("Tried to equip invalid weapon");
-            if (!validWeaponTypes.contains(weaponType))
-                throw new InvalidWeaponException("Tried to equip invalid weapon");
-            equipment.put(item.getSlot(), item);
-        } else if (itemType.equals("Armor")) {
-            String armorType = item.getArmorTypes().toString();
-            if (mylvl < ilvl) throw new InvalidArmorException("Tried to equip invalid armor");
-            if (!validArmorTypes.contains(armorType))
-                throw new InvalidArmorException("Tried to equip invalid armor");
-            equipment.put(item.getSlot(), item);
-        }
-//        if (itemType.equals("Weapon") && mylvl >= ilvl) {
-//            //String weaponType = item.getWeaponTypes().toString();
-//            if (weaponType.equals("WAND") || weaponType.equals("STAFF")) { //NICER IF IT CAN BE A LIST OF OPTIONS INSTEAD OF DOUBLE CONDITION
-//                equipment.put(item.getSlot(), item);
-//            } else{
-//                throw new InvalidWeaponException("Tried to equip invalid weapon");
-//            }
-//
-//        //Rules for equiping armor
-//        } else if (itemType.equals("Armor") && mylvl >= ilvl) {
-//
-//            String armorType = item.getArmorTypes().toString();
-//            if (armorType.equals("CLOTH")){ //NICER IF IT CAN BE A LIST OF OPTIONS INSTEAD OF DOUBLE CONDITION
-//                equipment.put(item.getSlot(), item);
-//            } else{
-//                throw new InvalidArmorException("Tried to equip invalid armor");
-//            }
-//        }
-
-    }
-
-    public void setLevel(int lvl){
-        level = lvl;
-    }
-
-    public int getLevel(){
-        return level;
-    }
-
-    public HeroAttribute getAttributes(){
-        return levelAttributes;
-    }
-
-    public void setAttributes(HeroAttribute attributes){
-        levelAttributes = attributes;
+        return weaponDmg * (1 + damagingAttribute / 100);
     }
 
 }
